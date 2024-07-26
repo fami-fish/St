@@ -44,7 +44,7 @@ install: st
 	tic -sx st.info
 	@echo Please see the README file regarding the terminfo entry of st.
 
-build_databse:
+build_database:
 	sudo bear -- make st -B
 
 uninstall:
