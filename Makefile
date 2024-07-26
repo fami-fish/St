@@ -21,7 +21,7 @@ x.o: arg.h config.h st.h win.h
 $(OBJ): config.h config.mk
 
 st: $(OBJ)
-	$(CC) -o $@ $(OBJ) $(STLDFLAGS)
+	$(CC) -g -o $@ $(OBJ) $(STLDFLAGS)
 
 clean:
 	rm -f st $(OBJ) st-$(VERSION).tar.gz
@@ -43,6 +43,9 @@ install: st
 	chmod 644 $(DESTDIR)$(MANPREFIX)/man1/st.1
 	tic -sx st.info
 	@echo Please see the README file regarding the terminfo entry of st.
+
+build_databse:
+	sudo bear -- make st -B
 
 uninstall:
 	rm -f $(DESTDIR)$(PREFIX)/bin/st
